@@ -76,3 +76,5 @@ def clear_history():
     if os.path.exists(csv_file):
         os.remove(csv_file)
     return redirect(url_for('index'))
+
+
