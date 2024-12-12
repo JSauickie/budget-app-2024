@@ -64,3 +64,15 @@ def add_expense():
         return redirect(url_for('index'))
 
     return render_template('add_expense.html')
+
+@app.route('/reset_budget', methods=['POST'])
+def reset_budget():
+    session['budget'] = 0
+    return redirect(url_for('index'))
+
+@app.route('/clear_history', methods=['POST'])
+def clear_history():
+    csv_file = get_user_csv()
+    if os.path.exists(csv_file):
+        os.remove(csv_file)
+    return redirect(url_for('index'))
