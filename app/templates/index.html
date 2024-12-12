@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Expense Tracker</title>
+</head>
+<body>
+    <h1>Daily Expense Tracker</h1>
+    <h2>Total Spending: ${{ total_spending }}</h2>
+    <h2>Budget: ${{ budget }}</h2>
+    <h2>Allowed Spending: ${{ allowed_spending }}</h2>
+
+    <form method="POST">
+        <label for="budget">Set Budget:</label>
+        <input type="number" step="0.01" id="budget" name="budget" required>
+        <button type="submit">Set Budget</button>
+    </form>
+
+    <a href="{{ url_for('add_expense') }}">Add Expense</a>
+    <table border="1">
+        <thead>
+            <tr><th>Date</th><th>Category</th><th>Description</th><th>Amount</th></tr>
+        </thead>
+        <tbody>
+            {% for expense in expenses %}
+            <tr>
+                <td>{{ expense.Date }}</td>
+                <td>{{ expense.Category }}</td>
+                <td>{{ expense.Description }}</td>
+                <td>${{ expense.Amount }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
