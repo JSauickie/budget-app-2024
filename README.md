@@ -29,3 +29,4 @@ Run the app using the following command
 ```sh
 flask run
 ```
+Then using the link provided from the code, copy and paste it into an internet browser to use the budgeting app.
